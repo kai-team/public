@@ -11,12 +11,10 @@
         "strategies": {
           "type": "array",
           "uniqueItems": true,
-          "anyOf": [
-            {
-              "type": "string",
-              "enum": ["password", "google"]
-            }
-          ]
+          "items": {
+            "type": "string",
+            "enum": ["password", "google"]
+          }
         }
       },
       "required": ["strategies"]
