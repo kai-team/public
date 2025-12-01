@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "admin": {
+      "type": "boolean"
+    },
+    "auth": {
+      "type": "object",
+      "properties": {
+        "strategies": {
+          "type": "array",
+          "uniqueItems": true,
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": ["password", "google"]
+            }
+          ]
+        }
+      },
+      "required": ["strategies"]
+    }
+  },
+  "required": ["auth"]
+}
