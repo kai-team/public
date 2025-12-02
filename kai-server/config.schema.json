@@ -21,10 +21,15 @@
       "description": "Authentication configuration.",
       "properties": {
         "strategies": {
+          "default": [
+            "google"
+          ],
+          "description": "Authentication strategies.",
           "items": {
             "$ref": "#/definitions/AuthStategies"
           },
-          "type": "array"
+          "type": "array",
+          "uniqueItems": true
         }
       },
       "required": [
