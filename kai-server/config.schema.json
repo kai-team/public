@@ -1,6 +1,5 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "additionalProperties": false,
   "definitions": {
     "AuthStrategy": {
       "enum": [
@@ -18,11 +17,7 @@
     }
   },
   "properties": {
-    "$schema": {
-      "type": "string"
-    },
     "auth": {
-      "additionalProperties": false,
       "description": "Authentication configuration.",
       "properties": {
         "remote": {
@@ -44,7 +39,10 @@
       "type": "object"
     },
     "modules": {
-      "default": "all modules",
+      "default": [
+        "admin",
+        "chat"
+      ],
       "description": "Enabled modules",
       "items": {
         "$ref": "#/definitions/Module"
