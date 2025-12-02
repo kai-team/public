@@ -1,24 +1,44 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "properties": {
-    "admin": {
-      "type": "boolean"
-    },
-    "auth": {
-      "type": "object",
+  "$ref": "#/definitions/AppConfig",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "AppConfig": {
+      "additionalProperties": false,
       "properties": {
-        "strategies": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string",
-            "enum": ["password", "google"]
-          }
+        "admin": {
+          "default": false,
+          "description": "Indicates admin panel is enabled or not.",
+          "type": "boolean"
+        },
+        "auth": {
+          "additionalProperties": false,
+          "description": "Authentication configuration.",
+          "properties": {
+            "strategies": {
+              "items": {
+                "$ref": "#/definitions/AuthStategies"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "strategies"
+          ],
+          "type": "object"
         }
       },
-      "required": ["strategies"]
+      "required": [
+        "admin",
+        "auth"
+      ],
+      "type": "object"
+    },
+    "AuthStategies": {
+      "enum": [
+        "password",
+        "google"
+      ],
+      "type": "string"
     }
-  },
-  "required": ["auth"]
+  }
 }
