@@ -2,44 +2,58 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "additionalProperties": false,
   "definitions": {
-    "AuthStategies": {
+    "AuthStrategy": {
       "enum": [
         "password",
         "google"
       ],
       "type": "string"
+    },
+    "Module": {
+      "enum": [
+        "admin",
+        "chat"
+      ],
+      "type": "string"
     }
   },
   "properties": {
-    "admin": {
-      "default": false,
-      "description": "Indicates admin panel is enabled or not.",
-      "type": "boolean"
+    "$schema": {
+      "type": "string"
     },
     "auth": {
       "additionalProperties": false,
       "description": "Authentication configuration.",
       "properties": {
+        "remote": {
+          "description": "Domain remote auth server for microservice",
+          "type": "string"
+        },
         "strategies": {
           "default": [
             "google"
           ],
           "description": "Authentication strategies.",
           "items": {
-            "$ref": "#/definitions/AuthStategies"
+            "$ref": "#/definitions/AuthStrategy"
           },
           "type": "array",
           "uniqueItems": true
         }
       },
-      "required": [
-        "strategies"
-      ],
       "type": "object"
+    },
+    "modules": {
+      "default": "all modules",
+      "description": "Enabled modules",
+      "items": {
+        "$ref": "#/definitions/Module"
+      },
+      "type": "array",
+      "uniqueItems": true
     }
   },
   "required": [
-    "admin",
     "auth"
   ],
   "type": "object"
