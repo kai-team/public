@@ -52,7 +52,6 @@
   },
   "properties": {
     "auth": {
-      "description": "Authentication configuration.",
       "properties": {
         "access_token_duration": {
           "$ref": "#/definitions/Duration",
@@ -67,6 +66,11 @@
             "days": 10
           },
           "description": "Refresh token duration"
+        },
+        "server_name": {
+          "default": "kai-server",
+          "description": "Server name use for JWT iss",
+          "type": "string"
         },
         "strategies": {
           "default": [
@@ -95,5 +99,8 @@
       "uniqueItems": true
     }
   },
+  "required": [
+    "auth"
+  ],
   "type": "object"
 }
