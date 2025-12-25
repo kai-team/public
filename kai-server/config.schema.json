@@ -80,7 +80,6 @@
           "uniqueItems": true
         }
       },
-      "required": false,
       "type": "object"
     },
     "modules": {
@@ -96,8 +95,5 @@
       "uniqueItems": true
     }
   },
-  "required": [
-    "auth"
-  ],
   "type": "object"
 }
