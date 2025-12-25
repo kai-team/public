@@ -80,6 +80,7 @@
           "uniqueItems": true
         }
       },
+      "required": false,
       "type": "object"
     },
     "modules": {
