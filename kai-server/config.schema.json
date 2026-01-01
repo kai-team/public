@@ -45,7 +45,8 @@
     "Module": {
       "enum": [
         "admin",
-        "chat"
+        "chat",
+        "chat_ws"
       ],
       "type": "string"
     }
