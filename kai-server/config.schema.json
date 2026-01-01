@@ -67,6 +67,10 @@
           },
           "description": "Refresh token duration"
         },
+        "remote_auth": {
+          "description": "Remote auth url use for microservice auth verify to remote server",
+          "type": "string"
+        },
         "server_name": {
           "default": "kai-server",
           "description": "Server name use for JWT iss",
