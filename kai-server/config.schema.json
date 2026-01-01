@@ -45,6 +45,8 @@
     "Module": {
       "enum": [
         "admin",
+        "auth",
+        "user",
         "chat",
         "chat_ws"
       ],
@@ -94,7 +96,10 @@
     "modules": {
       "default": [
         "admin",
-        "chat"
+        "auth",
+        "user",
+        "chat",
+        "chat_ws"
       ],
       "description": "Enabled modules",
       "items": {
