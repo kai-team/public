@@ -42,13 +42,26 @@
       },
       "type": "object"
     },
+    "LogLevel": {
+      "enum": [
+        "fatal",
+        "error",
+        "warn",
+        "info",
+        "debug",
+        "trace",
+        "silent"
+      ],
+      "type": "string"
+    },
     "Module": {
       "enum": [
         "admin",
         "auth",
         "user",
         "chat",
-        "chat_ws"
+        "chat_ws",
+        "task"
       ],
       "type": "string"
     }
@@ -89,6 +102,32 @@
           },
           "type": "array",
           "uniqueItems": true
+        }
+      },
+      "type": "object"
+    },
+    "logger": {
+      "properties": {
+        "level": {
+          "$ref": "#/definitions/LogLevel",
+          "default": "info",
+          "description": "Log level"
+        },
+        "pretty": {
+          "default": false,
+          "description": "Enable pretty printing (human-readable format) Set to true for development, false for production (JSON output)",
+          "type": "boolean"
+        },
+        "redact": {
+          "default": [
+            "req.headers.authorization",
+            "req.headers.cookie"
+          ],
+          "description": "Redact sensitive fields from logs",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "type": "object"
