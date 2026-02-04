@@ -60,8 +60,7 @@
         "auth",
         "user",
         "chat",
-        "chat_ws",
-        "task"
+        "chat_ws"
       ],
       "type": "string"
     }
