@@ -60,7 +60,8 @@
         "auth",
         "user",
         "chat",
-        "chat_ws"
+        "chat_ws",
+        "powersync"
       ],
       "type": "string"
     }
